@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+   had-database:
+     image: mysql:5.7
+     container_name: had-database
+     volumes:
+      - "./.mysql-data/db:/var/lib/mysql"
+     restart: always
+     ports:
+      - 3306:3306
+     networks:
+      - had-net
+     environment:
+       MYSQL_ROOT_PASSWORD: pw
+       MYSQL_DATABASE: test_db
+       MYSQL_USER: test
+       MYSQL_PASSWORD: test_pw
+
+networks:
+  had-net:
+    external: true
+
