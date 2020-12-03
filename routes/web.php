@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\VermittlungenController;
+use App\Http\Controllers\NutzerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,9 @@ Route::get('/', function () {
 
 Route::get('/vermittlungen', [VermittlungenController::class, 'index'])->name('vermittlungen');
 Route::post('/vermittlungen', [VermittlungenController::class, 'store']);
+
+Route::get('/nutzer', [NutzerController::class, 'index'])->name('nutzer');
+
 
 Auth::routes();
 

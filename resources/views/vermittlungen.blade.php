@@ -15,7 +15,7 @@
 
                                 <div>
                                     <button type="submit" class="btn-dark text-white px-4 py-2 rounded font-medium">Neue
-                                        Vermittlung</button>
+                                        Suchanfrage</button>
                                 </div>
                             </form>
 
