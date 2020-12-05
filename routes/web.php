@@ -24,6 +24,8 @@ Route::post('/vermittlungen', [VermittlungenController::class, 'store']);
 
 Route::get('/nutzer', [NutzerController::class, 'index'])->name('nutzer');
 
+Route::get('/vermittlung_details/{id}', [VermittlungenController::class, 'details'])->name('vermittlung_details');
+
 
 Auth::routes();
 

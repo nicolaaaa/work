@@ -89,7 +89,8 @@ use Kyslik\ColumnSortable\Sortable;
 class Vermittlung extends Model
 {
 	protected $table = 'contractors_searches';
-	public $timestamps = false;
+    public $timestamps = false;
+    protected  $primaryKey = 'id';
 
 	protected $casts = [
 		'Angebotsnr' => 'int',
@@ -109,7 +110,22 @@ class Vermittlung extends Model
 		'dtinsert',
 		'dtedit',
 		'WVLam'
-	];
+    ];
+
+    public function Zeitraeume()
+    {
+        return $this->hasMany('App\Models\Zeitraum','searchID','id');
+    }
+
+    public function Vertraege()
+    {
+        return $this->hasMany('App\Models\Vertrag','searchID','id');
+    }
+
+    public function Placements()
+    {
+        return $this->hasMany('App\Models\Placement','searchID','id');
+    }
 
 	protected $fillable = [
 		'dtinsert',

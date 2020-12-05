@@ -38,7 +38,11 @@
                                 @if ($vermittlungen->count())
                                     @foreach ($vermittlungen as $vermittlung)
                                         <tr>
-                                            <td>{{ $vermittlung->id }}</td>
+                                            <td>
+                                                <a href="{{ route('vermittlung_details', ['id' => $vermittlung->id]) }}">
+                                                    {{ $vermittlung->id }}
+                                                </a>
+                                            </td>
                                             <td>{{ $vermittlung->PL1 }}</td>
                                             <td>{{ $vermittlung->FirmenIDs }}</td>
                                             <td>{{ $vermittlung->contractor }}</td>
