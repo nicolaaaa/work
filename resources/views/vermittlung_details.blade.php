@@ -86,7 +86,7 @@
                         </div>
                     </div>
 
-                    {{-- <div class="card">
+                    <div class="card">
                         <div class="card-header">Rückmeldungen</div>
                         <div class="card-body">
 
@@ -99,12 +99,12 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                @else
+                            @else
                                 <p>keine Rückmeldungen</p>
                             @endif
 
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>

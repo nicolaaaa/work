@@ -31,17 +31,21 @@ class VermittlungenController extends Controller
         $vertraege = $vermittlung->Vertraege()->get();
         $zeitraueme = $vermittlung->Zeitraeume()->get();
         $placements = $vermittlung->Placements()->get();
+
+        $placement_nutzer = '';
         foreach ($placements as $placement){
-            $placement_nutzer = $placement->Nutzer()->get();
+            $placement_nutzer += $placement->Nutzer()->get();
         }
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $out->writeln($placement_nutzer);
+        $out->writeln('placements');
+
+        $out->writeln($placements);
+        $out->writeln('placements');
+
         $rueckmeldungen = explode(',',$vermittlung->alreadyReplied);
+        $rueckmeldungen_nutzer = Nutzer::whereIn('id', $rueckmeldungen)->get();
 
-        foreach ($rueckmeldungen as $rueckmeldung){
-            // dd($rueckmeldung);
-
-            $rueckmeldungen_nutzer = Nutzer::find($rueckmeldung);
-        }
-// dd($rueckmeldungen_nutzer);
 
         return view('vermittlung_details', [
         'vermittlung' => $vermittlung,
